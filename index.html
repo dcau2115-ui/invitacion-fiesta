@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación</title>
+<title>Invitación Especial</title>
 
 <style>
 body {
@@ -18,8 +18,8 @@ body {
 
 .card {
     background: #ffffff;
-    max-width: 420px;
-    width: 90%;
+    max-width: 580px;
+    width: 95%;
     padding: 20px;
     border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
@@ -35,6 +35,7 @@ body {
 h2 {
     color: #8b6b55;
     font-size: 22px;
+    margin-bottom: 10px;
 }
 
 .countdown {
@@ -62,10 +63,16 @@ h2 {
     color: #6f4e37;
 }
 
+.place {
+    font-size: 14px;
+    color: #6f4e37;
+    margin: 15px 0;
+}
+
 .btn {
     display: block;
     background: #8b6b55;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     padding: 12px;
     border-radius: 25px;
@@ -89,7 +96,7 @@ footer {
 
 <div class="card">
 
-    <!-- Imagen -->
+    <!-- Imagen de la invitación -->
     <img src="invitacion.png" alt="Invitación">
 
     <h2>¡La cuenta regresiva ha comenzado!</h2>
@@ -114,6 +121,12 @@ footer {
         </div>
     </div>
 
+    <!-- Lugar -->
+    <div class="place">
+        📍 <strong>Villa Bustamante</strong><br>
+        Huanchaco, Trujillo
+    </div>
+
     <!-- Botón WhatsApp -->
     <a class="btn"
        href="https://wa.me/51924547592?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20fiesta.%20¡Gracias!"
@@ -121,7 +134,7 @@ footer {
        ✅ Confirmar asistencia
     </a>
 
-    <!-- Botón ubicación -->
+    <!-- Botón Google Maps -->
     <a class="btn"
        href="https://maps.app.goo.gl/cbYyWKrberVmtnNr5"
        target="_blank">
