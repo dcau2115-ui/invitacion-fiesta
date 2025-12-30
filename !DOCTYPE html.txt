@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: #f7f3ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: #ffffff;
+            max-width: 420px;
+            width: 90%;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            margin: 10px 0;
+            color: #8b6b55;
+            font-size: 22px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .time-box {
+            background: #f2e8e1;
+            border-radius: 8px;
+            padding: 10px;
+            width: 22%;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            color: #6f4e37;
+        }
+
+        .time-box small {
+            font-size: 12px;
+            color: #6f4e37;
+        }
+
+        .location {
+            margin-top: 15px;
+        }
+
+        .location p {
+            margin-bottom: 10px;
+            color: #6f4e37;
+            font-size: 14px;
+        }
+
+        .map-btn {
+            display: inline-block;
+            background: #8b6b55;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .map-btn:hover {
+            background: #6f4e37;
+        }
+
+        footer {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #8b6b55;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <!-- Imagen -->
+    <img src="Tarjeta Invitación de Boda Floral Elegante Clásica Simple Acuarelas Colores Pastel .png" alt="Invitación">
+
+    <h2>¡La cuenta regresiva ha comenzado!</h2>
+
+    <!-- Cuenta regresiva -->
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">0</span>
+            <small>Días</small>
+        </div>
+        <div class="time-box">
+            <span id="hours">0</span>
+            <small>Horas</small>
+        </div>
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <small>Minutos</small>
+        </div>
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <small>Segundos</small>
+        </div>
+    </div>
+
+    <!-- Ubicación -->
+    <div class="location">
+        <p>📍 Villa Bustamante – Huanchaco, Trujillo</p>
+        <a class="map-btn" 
+           href="https://www.google.com/maps/search/?api=1&query=Villa+Bustamante+Huanchaco+Trujillo"
+           target="_blank">
+           Ver ubicación en Google Maps
+        </a>
+    </div>
+
+    <footer>
+        📅 24 de enero de 2025 – ⏰ 7:00 p.m.
+    </footer>
+</div>
+
+<script>
+    const eventDate = new Date("2025-01-24T19:00:00").getTime();
+
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+            clearInterval(countdown);
+            document.querySelector(".countdown").innerHTML = "<h3>¡El evento ha comenzado! 🎉</h3>";
+            return;
+        }
+
+        document.getElementById("days").textContent =
+            Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").textContent =
+            Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").textContent =
+            Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").textContent =
+            Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+</script>
+
+</body>
+</html>
