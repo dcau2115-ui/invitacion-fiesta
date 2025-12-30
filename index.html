@@ -1,135 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Especial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: #f7f3ef;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: #f7f3ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-.card {
-    background: #ffffff;
-    max-width: 580px;
-    width: 95%;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    text-align: center;
-}
+        .card {
+            background: #ffffff;
+            max-width: 580px;
+            width: 95%;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            text-align: center;
+        }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 18px;
-}
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 18px;
+        }
 
-h2 {
-    color: #8b6b55;
-}
+        h2 {
+            margin: 10px 0;
+            color: #8b6b55;
+            font-size: 22px;
+        }
 
-.countdown {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
+        .countdown {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
 
-.time-box {
-    background: #f2e8e1;
-    border-radius: 8px;
-    padding: 10px;
-    width: 22%;
-}
+        .time-box {
+            background: #f2e8e1;
+            border-radius: 8px;
+            padding: 10px;
+            width: 22%;
+        }
 
-.time-box span {
-    display: block;
-    font-size: 22px;
-    font-weight: bold;
-    color: #6f4e37;
-}
+        .time-box span {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            color: #6f4e37;
+        }
 
-.location p {
-    font-size: 14px;
-    color: #6f4e37;
-}
+        .time-box small {
+            font-size: 12px;
+            color: #6f4e37;
+        }
 
-.btn {
-    display: inline-block;
-    background: #8b6b55;
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 25px;
-    font-size: 14px;
-    margin: 6px 4px;
-    cursor: pointer;
-    border: none;
-}
+        .location {
+            margin-top: 15px;
+        }
 
-.btn:hover {
-    background: #6f4e37;
-}
+        .location p {
+            margin-bottom: 10px;
+            color: #6f4e37;
+            font-size: 14px;
+        }
 
-.form {
-    margin-top: 15px;
-}
+        .map-btn, .confirm-btn {
+            display: inline-block;
+            background: #8b6b55;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            margin: 6px 4px;
+            transition: background 0.3s;
+        }
 
-input {
-    width: 90%;
-    padding: 10px;
-    margin: 6px 0;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
+        .map-btn:hover, .confirm-btn:hover {
+            background: #6f4e37;
+        }
 
-footer {
-    margin-top: 15px;
-    font-size: 13px;
-    color: #8b6b55;
-}
-</style>
+        footer {
+            margin-top: 18px;
+            font-size: 13px;
+            color: #8b6b55;
+        }
+    </style>
 </head>
 <body>
 
-<!-- 🎵 Música de fondo -->
-<audio autoplay loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
 <div class="card">
-<img src="invitacion.png" alt="Invitación">
 
-<h2>¡La cuenta regresiva ha comenzado!</h2>
+    <img src="invitacion.png" alt="Invitación">
 
-<div class="countdown">
-    <div class="time-box"><span id="days">0</span><small>Días</small></div>
-    <div class="time-box"><span id="hours">0</span><small>Horas</small></div>
-    <div class="time-box"><span id="minutes">0</span><small>Minutos</small></div>
-    <div class="time-box"><span id="seconds">0</span><small>Segundos</small></div>
+    <h2>¡La cuenta regresiva ha comenzado!</h2>
+
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">0</span>
+            <small>Días</small>
+        </div>
+        <div class="time-box">
+            <span id="hours">0</span>
+            <small>Horas</small>
+        </div>
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <small>Minutos</small>
+        </div>
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <small>Segundos</small>
+        </div>
+    </div>
+
+    <div class="location">
+        <p>📍 Villa Bustamante – Huanchaco, Trujillo</p>
+
+        <!-- Botón Google Maps -->
+        <a class="map-btn"
+           href="https://www.google.com/maps/search/?api=1&query=Villa+Bustamante+Huanchaco+Trujillo"
+           target="_blank">
+           Ver ubicación
+        </a>
+
+        <!-- Botón Confirmar Asistencia -->
+        <a class="confirm-btn"
+           href="https://wa.me/51924547592?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento%20del%2024%20de%20enero.%20¡Gracias!"
+           target="_blank">
+           Confirmar asistencia
+        </a>
+    </div>
+
+    <footer>
+        📅 24 de enero de 2026 – ⏰ 7:00 p.m.
+    </footer>
 </div>
 
-<div class="location">
-<p>📍 Villa Bustamante – Huanchaco, Trujillo</p>
+<script>
+    const eventDate = new Date("2026-01-24T19:00:00").getTime();
 
-<a class="btn" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Villa+Bustamante+Huanchaco+Trujillo">
-Ver ubicación
-</a>
-</div>
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
 
-<!-- 📋 Formulario -->
-<div class="form">
-<input type="text" id="nombre" placeholder="Tu nombre">
-<input type="number" id="invitados" placeholder="Número de invitados">
+        if (distance < 0) {
+            clearInterval(countdown);
+            document.querySelector(".countdown").innerHTML =
+                "<h3>¡El evento ha comenzado! 🎉</h3>";
+            return;
+        }
 
-<button class="btn" onclick="enviar('Asistirá')">✅ Confirmar asistencia</button>
-<button class="btn" onclick="
+        document.getElementById("days").textContent =
+            Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById("hours").textContent =
+            Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutes").textContent =
+            Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("seconds").textContent =
+            Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+</script>
 
+</body>
+</html>
